@@ -7,7 +7,7 @@ class Conta {
         this.saldo = saldo;
     }
 
-    sacar(valor: number){
+    sacar(valor: number): boolean{
         if (this.saldo - valor >= 0) {
             this.saldo = this.saldo - valor;
             return true;
@@ -24,7 +24,7 @@ class Conta {
         return this.saldo;
     }
 
-    transferir(contaDestino: Conta, valor: number){
+    transferir(contaDestino: Conta, valor: number): boolean{
         if (this.sacar(valor)) {
             contaDestino.depositar(valor);
             return true;
