@@ -1,0 +1,58 @@
+1. Suponha uma classe Hotel que sirva apenas para guardar a quantidade de
+solicitações de reservas feitas conforme abaixo:
+
+class Hotel {
+    quantReservas : number;
+    adicionarReserva() : void {
+    quantReservas++;
+    }
+}
+
+Podemos afirmar que haverá um problema de compilação, pois a variável inteira não
+foi inicializada previamente? Justifique.
+    
+    Haverá um erro de compilação porque não foi indicado ao compilador que a variável
+    quantReservas pode aceitar valores nulos, e nem foi inicializada dentro do construtor.
+    
+
+    
+3. Considere a classe Radio e as instruções que fazem seu uso abaixo:
+
+class Radio {
+    volume : number;
+    constructor(volume : number) {
+    this.volume = volume;
+    }
+}
+let r : Radio = new Radio();
+r.volume = 10;
+
+Justifique o erro de compilação e proponha uma solução.
+
+    O erro ocorre porque o construtor espera um valor para volume na hora de instanciar 
+    objeto da classe Radio. Uma maneira de solucionar o problema seria passar ao constructor
+    um número como valor inicial de volume, deste modo:
+    
+    let r :  Radio = new Radio(10);
+    
+4. Considerando o uso da classe Conta apresentada em aula e seu uso abaixo:
+    let c1: Conta = new Conta("1",100);
+    let c2: Conta = new Conta("2",100);
+    let c3: Conta;
+    c1 = c2;
+    c3 = c1;
+    c1.sacar(10);
+    
+    c1.transferir(c2,50);
+    console.log(c1.consultarSaldo());
+    console.log(c2.consultarSaldo());
+    console.log(c3.consultarSaldo());
+    
+    a. Qual o resultado dos dois "prints"? Justifique sua resposta.
+    
+    O saldo terá o mesmo valor porque as contas apontam para a mesma referência.
+    
+    b. O que acontece com o objeto para o qual a referência c1 apontava?
+    
+    Ao ficar sem referência o objeto é descartado da memória pelo garbage colector.
+    
